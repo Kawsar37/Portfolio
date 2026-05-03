@@ -189,7 +189,6 @@ export function Hero() {
                 src="/asset/banner.gif"
                 alt="Banner"
                 fill
-                unoptimized
                 className="object-cover"
                 priority
               />
