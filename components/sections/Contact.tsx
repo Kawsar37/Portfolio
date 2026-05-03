@@ -8,9 +8,12 @@ export function Contact() {
     name: "",
     whatsapp: "",
     email: "",
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -131,6 +134,26 @@ export function Contact() {
                   onChange={handleChange}
                   placeholder="john@example.com"
                   className="w-full bg-dark-900 border border-accent/20 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-accent/60 transition-colors duration-300"
+                  required
+                />
+              </div>
+
+              {/* Message Textarea */}
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm text-gray-300 mb-2"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your project..."
+                  rows={5}
+                  className="w-full bg-dark-900 border border-accent/20 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-accent/60 transition-colors duration-300 resize-none"
                   required
                 />
               </div>
