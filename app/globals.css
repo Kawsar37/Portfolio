@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0e27;
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+
+/* Smooth scroll with Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis [data-lenis-prevent] {
+  overflow: hidden;
+}
+
+html.lenis [data-lenis-smoothscroll] {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: hidden;
+}
+
+/* Selection styles */
+::selection {
+  background-color: #0ea5e9;
+  color: #0a0e27;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e27;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0ea5e9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Smooth gradient backgrounds */
+.gradient-dark {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+}
+
+/* Text animations */
+.text-gradient {
+  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effect */
+.glow-effect {
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(31, 41, 55, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 231, 235, 0.1);
+}
+
+/* Smooth transitions */
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg bg-accent text-dark-950 font-semibold hover:bg-accent-dark transition-all duration-300 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg border border-accent text-accent hover:bg-accent hover:text-dark-950 transition-all duration-300;
+  }
+
+  .section-container {
+    @apply max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 py-10;
+  }
+
+  .section-title {
+    @apply text-4xl sm:text-5xl font-bold mb-12 text-gradient;
+  }
+
+  .glass-card {
+    @apply glass rounded-xl p-6 sm:p-8 hover:border-accent/50 transition-all duration-300;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
