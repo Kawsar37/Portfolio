@@ -106,7 +106,6 @@ export function About() {
                 src="/asset/banner.gif"
                 alt="Banner"
                 fill
-                unoptimized
                 className="object-cover"
                 priority
               />
