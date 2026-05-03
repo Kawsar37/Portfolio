@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Settings, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Settings, Download, View } from "lucide-react";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import Image from "next/image";
 
@@ -201,15 +201,15 @@ export function Hero() {
 
       {/* Download Resume Button */}
       <motion.a
-        href="/new_resume.pdf"
-        download
+        target="_blank"
+        href="https://drive.google.com/file/d/16qLzwhmvkvYRB-PtwEjLzlR9piOBgYva/view"
         className="px-6 py-3 rounded-lg border border-accent/30 text-accent bg-accent/10 hover:bg-accent/20 transition-all duration-300 group relative flex items-center gap-2 font-medium max-w-max mx-auto -top-40 sm:-top-16"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        title="Download Resume"
+        title="View Resume"
       >
-        <Download size={20} />
-        <span className="max-w-max">Download Resume</span>
+        <View size={20} />
+        <span className="max-w-max">View Resume</span>
       </motion.a>
     </>
   );
