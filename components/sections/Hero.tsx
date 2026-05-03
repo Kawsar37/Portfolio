@@ -203,12 +203,13 @@ export function Hero() {
       {/* Download Resume Button */}
       <Link
         target="_blank"
-        href="https://drive.google.com/file/d/16qLzwhmvkvYRB-PtwEjLzlR9piOBgYva/view"
+        download={true}
+        href="/kawsars_resume.pdf"
         className="px-6 py-3 rounded-lg border border-accent/30 text-accent bg-accent/10 hover:bg-accent/20 transition-all duration-300 group relative flex items-center gap-2 font-medium max-w-max mx-auto -top-40 sm:-top-16 z-50"
-        title="View Resume"
+        title="Download Resume"
       >
-        <View size={20} />
-        <span className="max-w-max">View Resume</span>
+        <Download size={20} />
+        <span className="max-w-max">Download Resume</span>
       </Link>
     </>
   );
