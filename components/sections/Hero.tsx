@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Settings, Download, View } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import Image from "next/image";
 import Link from "next/link";
@@ -208,7 +208,7 @@ export function Hero() {
         className="px-6 py-3 rounded-lg border border-accent/30 text-accent bg-accent/10 hover:bg-accent/20 transition-all duration-300 group relative flex items-center gap-2 font-medium max-w-max mx-auto -top-40 sm:-top-16 z-50"
         title="Download Resume"
       >
-        <Download size={20} />
+        <ExternalLink size={20} />
         <span className="max-w-max">View Resume</span>
       </Link>
     </>
