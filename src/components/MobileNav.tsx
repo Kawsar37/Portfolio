@@ -52,7 +52,7 @@ export default function MobileNav() {
               alt="Logo"
               width={32}
               height={32}
-              className="object-contain bg-black rounded-xl"
+              className="object-contain bg-black rounded-xl "
               priority
             />
           </div>
@@ -67,7 +67,7 @@ export default function MobileNav() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`flex items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 ${
+                className={`flex justify-center items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 ${
                   isActive
                     ? "bg-foreground text-background"
                     : "text-text-muted hover:text-foreground hover:bg-card-bg"
@@ -75,7 +75,7 @@ export default function MobileNav() {
                 aria-label={item.label}
               >
                 <Icon size={14} />
-                <span className="hidden sm:inline">{item.label}</span>
+                {/* <span className="hidden sm:inline">{item.label}</span> */}
               </button>
             );
           })}

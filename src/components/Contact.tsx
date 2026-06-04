@@ -68,7 +68,7 @@ export default function Contact() {
     {
       icon: FaWhatsapp,
       label: "WhatsApp",
-      metric: "+8801850560637",
+      metric: "Available on WhatsApp",
       url: "https://wa.me/8801850560637",
       color: "#25D366",
     },
