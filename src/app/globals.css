@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827; /* gray-900 */
+  --card-bg: #f9fafb; /* gray-50 */
+  --card-border: #e5e7eb; /* gray-200 */
+  --sidebar-bg: #f3f4f6; /* gray-100 */
+  --accent: #111827; /* dark accent for light mode */
+  --accent-hover: #1f2937;
+  --accent-foreground: #ffffff;
+  --text-muted: #4b5563; /* gray-600 */
+  --border: #e5e7eb;
+  --pill-bg: #e5e7eb;
+  --pill-text: #1f2937;
+  --sidebar-border: #e5e7eb;
+}
+
+.dark {
+  --background: #030303;
+  --foreground: #ededed;
+  --card-bg: #0b0b0b;
+  --card-border: #141414;
+  --sidebar-bg: #070707;
+  --accent: #ffffff; /* light accent for dark mode */
+  --accent-hover: #e5e7eb;
+  --accent-foreground: #030303;
+  --text-muted: #8e8e8e;
+  --border: #141414;
+  --pill-bg: #111111;
+  --pill-text: #8e8e8e;
+  --sidebar-border: #111111;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-pill-bg: var(--pill-bg);
+  --color-pill-text: var(--pill-text);
+  
+  --font-sans: 'Outfit', var(--font-geist-sans), sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Smooth selection colors */
+::selection {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+/* Hand-drawn sticker outline effect for Hero picture */
+.sticker-outline {
+  position: relative;
+  outline: 4px solid var(--foreground);
+  outline-offset: -2px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.sticker-outline-light {
+  outline: 4px solid #ffffff;
+  outline-offset: -2px;
+}
