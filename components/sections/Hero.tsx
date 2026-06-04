@@ -204,12 +204,12 @@ export function Hero() {
       <Link
         target="_blank"
         download={true}
-        href="/kawsars_resume.pdf"
+        href="https://drive.google.com/file/d/1gjA65EIcRsOHa3jLcg9l0yi2Xdyd038J/view?usp=drive_link"
         className="px-6 py-3 rounded-lg border border-accent/30 text-accent bg-accent/10 hover:bg-accent/20 transition-all duration-300 group relative flex items-center gap-2 font-medium max-w-max mx-auto -top-40 sm:-top-16 z-50"
         title="Download Resume"
       >
         <Download size={20} />
-        <span className="max-w-max">Download Resume</span>
+        <span className="max-w-max">View Resume</span>
       </Link>
     </>
   );
