@@ -114,7 +114,7 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2">
             <a
-              href="mailto:kawsarali750@email.com"
+              href="mailto:kawsarali.cs@email.com"
               className="flex items-center justify-center space-x-2.5 bg-accent hover:bg-accent-hover text-accent-foreground font-semibold px-6 py-3.5 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95"
             >
               <Mail size={18} />
