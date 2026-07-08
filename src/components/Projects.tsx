@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, Globe } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 
 export default function Projects() {
@@ -23,7 +23,6 @@ export default function Projects() {
         "Stripe",
         "BetterAuth",
         "Tailwind CSS",
-        "JWT",
       ],
     },
     {
@@ -41,7 +40,6 @@ export default function Projects() {
         "BetterAuth",
         "HeroUI",
         "Tailwind CSS",
-        "JWT",
       ],
     },
     {
@@ -64,116 +62,121 @@ export default function Projects() {
     {
       title: "DigiTools Platform - React Web App with Local JSON Data",
       description:
-        "DigiTools Platform is a modern web application built using React, Tailwind CSS, and daisyUI. It allows users to browse digital products add them to a cart and remove items as needed. Product data is fetched from a local JSON file /public/data.json using the Fetch API along with use() hook within a component. The application is fully responsive across devices and focuses on clean UI and core React functionality for state management and user interaction.",
+        "DigiTools Platform is a modern web application built using React, Tailwind CSS, and daisyUI. It allows users to browse digital products add them to a cart and remove items as needed. Product data is fetched from a local JSON file using the Fetch API along with use() hook within a component.",
       image: "/asset/project3.png",
       github: "https://github.com/Kawsar37/digi-tools-platform",
-      live: "https://digi-tools-platform-by-kawsar.netlify.app", // No live site for native Android, only GitHub
-      tags: [
-        "React.js",
-        "Tailwind CSS",
-        "daisyUI",
-        "Fetch API",
-        "JSON Data",
-        "Responsive Design",
-        "State Management",
-      ],
+      live: "https://digi-tools-platform-by-kawsar.netlify.app",
+      tags: ["React.js", "Tailwind CSS", "daisyUI", "Fetch API", "JSON Data"],
     },
   ];
 
   return (
     <section
       id="projects"
-      className="py-20 px-4 md:px-8 border-b border-border bg-background transition-colors"
+      className="py-32 px-4 md:px-8 bg-black border-b border-zinc-800 text-white"
     >
-      <div className="max-w-4xl mx-auto w-full">
-        {/* Section Header */}
-        <div className="mb-12">
-          <p className="text-xs uppercase tracking-widest text-text-muted font-bold mb-2">
-            Featured Work
+      <div className="max-w-6xl mx-auto w-full">
+        {/* Modern Minimalistic Header */}
+        <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <span className="text-xs uppercase tracking-widest text-zinc-500 font-semibold block mb-3"></span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+              Featured Projects.
+            </h2>
+          </div>
+          <p className="text-sm text-zinc-400 max-w-xs font-medium">
+            A digital showroom of full-stack systems, fluid interfaces, and
+            performance-tuned software architectures.
           </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Projects
-          </h2>
         </div>
 
-        {/* Projects List */}
-        <div className="space-y-12">
+        {/* Modern Project Column List */}
+        <div className="space-y-32">
           {projectList.map((project, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="bg-card-bg border border-card-border rounded-3xl p-6 md:p-8 flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 hover:border-foreground/20 transition-all duration-300 group hover:shadow-xl"
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group"
             >
-              {/* Left Column: Image wrapper */}
-              <div className="md:col-span-5 relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-background border border-card-border/50">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 300px"
-                />
-              </div>
-
-              {/* Right Column: Information */}
-              <div className="md:col-span-7 flex flex-col justify-between space-y-4">
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-xl font-bold text-foreground leading-tight group-hover:text-accent transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-text-muted leading-relaxed">
-                    {project.description}
-                  </p>
+              {/* 1. Cinematic Screen Preview Container */}
+              <div className="lg:col-span-7 relative w-full aspect-[16/10] bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800/80 shadow-2xl transition-all duration-500 group-hover:border-zinc-700/50">
+                {/* Simulated Window Controls (Adds high-end flair) */}
+                <div className="absolute top-3 left-4 flex gap-1.5 z-10 opacity-60">
+                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
                 </div>
 
-                {/* Links */}
-                <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-1.5 text-text-muted hover:text-foreground transition-colors group/link"
-                  >
-                    <FaGithub size={16} />
-                    <span>GitHub Code</span>
-                    <ExternalLink
-                      size={12}
-                      className="opacity-0 group-hover/link:opacity-100 transition-opacity"
+                <div className="w-full h-full pt-8 p-1 md:p-2 bg-gradient-to-b from-zinc-900 via-zinc-950 to-black">
+                  <div className="relative w-full h-full rounded-lg overflow-hidden shadow-inner">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      priority={idx === 0}
+                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      sizes="(max-width: 1024px) 100vw, 700px"
                     />
-                  </a>
+                  </div>
+                </div>
+              </div>
 
+              {/* 2. Text Information Stack */}
+              <div className="lg:col-span-5 flex flex-col space-y-5 lg:pl-4">
+                {/* Tech Pills */}
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-md bg-zinc-900 text-zinc-400 border border-zinc-800/60"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Project Title */}
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight">
+                  {project.title.split(" - ")[0]}
+                  <span className="block text-sm font-medium text-zinc-500 mt-1">
+                    {project.title.split(" - ")[1]}
+                  </span>
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-zinc-400 leading-relaxed font-normal">
+                  {project.description}
+                </p>
+
+                {/* Interactive Modern Actions */}
+                <div className="flex items-center gap-4 pt-2">
                   {project.live && (
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-1.5 text-text-muted hover:text-foreground transition-colors group/link"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xl bg-white text-black hover:bg-zinc-200 transition-all duration-300 shadow-lg group/btn"
                     >
-                      <Globe size={16} />
-                      <span>Live Site</span>
-                      <ExternalLink
-                        size={12}
-                        className="opacity-0 group-hover/link:opacity-100 transition-opacity"
+                      <span>Explore Project</span>
+                      <ArrowUpRight
+                        size={14}
+                        className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
                       />
                     </a>
                   )}
-                </div>
 
-                {/* Tech Pills */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-semibold px-3 py-1 rounded-full bg-pill-bg text-pill-text border border-card-border hover:border-foreground/10 transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 hover:text-white transition-all duration-300 text-zinc-300"
+                  >
+                    <FaGithub size={15} />
+                    <span>Source Code</span>
+                  </a>
                 </div>
               </div>
             </motion.div>
