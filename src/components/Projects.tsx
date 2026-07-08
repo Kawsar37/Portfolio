@@ -9,6 +9,24 @@ import { FaGithub } from "react-icons/fa6";
 export default function Projects() {
   const projectList = [
     {
+      title: "SkillSwap - Freelance Micro-Task Marketplace",
+      description:
+        "Architected a full-stack freelance marketplace featuring 3 role-based dashboards (client, freelancer, and admin) with secure transactional workflows. Developed 25+ REST APIs and optimized serverless database middleware on Vercel to completely eliminate cold-start timeouts and reduce data-fetching latency by 40%. Integrated Stripe checkout and BetterAuth JWT for end-to-end payment processing and robust session management.",
+      image: "/asset/project4.png",
+      github: "https://github.com/Kawsar37/skill-swap-frontend",
+      live: "https://skill-swap-frontend-by-kawsar.vercel.app/",
+      tags: [
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Stripe",
+        "BetterAuth",
+        "Tailwind CSS",
+        "JWT",
+      ],
+    },
+    {
       title: "IdeaVault - Startup Idea Sharing Platform",
       description:
         "Developed a full-stack idea-sharing platform featuring JWT-based authentication, Google OAuth sign-in, and persistent session management backed by BetterAuth. Users can perform CRUD operations on startup ideas and comments, filter content by category, and search across submissions. Built dynamic, responsive UI pages with dark/light mode toggles.",
