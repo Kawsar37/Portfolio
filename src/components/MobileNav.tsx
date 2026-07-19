@@ -3,50 +3,27 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { User, FolderGit, Briefcase, Zap, BookOpen, Mail, Sun, Moon } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
+import { useScrollToSection } from "@/hooks/useScrollToSection";
 
 export default function MobileNav() {
   const { theme, resolvedTheme, setTheme } = useTheme();
-  const [activeSection, setActiveSection] = useState("hero");
+  const [mounted, setMounted] = useState(false);
+  const scrollTo = useScrollToSection(60);
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-50% 0px -50% 0px",
-      threshold: 0,
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) setActiveSection(entry.target.id);
-      });
-    }, observerOptions);
-    ["hero", "projects", "experience", "skills", "blog", "contact"].forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
+    const t = window.setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(t);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const navItems = [
-    { id: "hero", icon: User, label: "Home" },
-    { id: "projects", icon: FolderGit, label: "Projects" },
-    { id: "experience", icon: Briefcase, label: "Experience" },
-    { id: "skills", icon: Zap, label: "Skills" },
-    { id: "blog", icon: BookOpen, label: "Blog" },
-    { id: "contact", icon: Mail, label: "Contact" },
-  ];
-
   return (
-    <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-sidebar-bg border-b border-sidebar-border">
+    <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-sidebar-bg/80 backdrop-blur-xl border-b border-sidebar-border">
       <div className="flex items-center justify-between px-4 py-3">
         {/* Logo */}
         <button
-          onClick={() => scrollToSection("hero")}
-          className="flex items-center"
+          onClick={() => scrollTo("hero")}
+          className="flex items-center gap-2.5"
+          aria-label="Scroll to top"
         >
           <div className="w-8 h-8 flex items-center justify-center">
             <Image
@@ -54,49 +31,31 @@ export default function MobileNav() {
               alt="Logo"
               width={32}
               height={32}
-              className="object-contain bg-black rounded-xl "
+              className="object-contain bg-black rounded-lg"
               priority
             />
           </div>
+          <span className="text-sm font-semibold text-foreground tracking-tight">
+            Kawsar Ali
+          </span>
         </button>
-
-        {/* Nav items */}
-        <nav className="flex items-center space-x-1">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeSection === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`flex justify-center items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 ${
-                  isActive
-                    ? "bg-foreground text-background"
-                    : "text-text-muted hover:text-foreground hover:bg-card-bg"
-                }`}
-                aria-label={item.label}
-              >
-                <Icon size={14} />
-                {/* <span className="hidden sm:inline">{item.label}</span> */}
-              </button>
-            );
-          })}
-        </nav>
 
         {/* Theme toggle */}
-        <button
-          onClick={() =>
-            setTheme((resolvedTheme ?? theme) === "dark" ? "light" : "dark")
-          }
-          className="p-2 text-text-muted hover:text-foreground hover:bg-card-bg rounded-xl transition-all duration-300"
-          aria-label="Toggle Theme"
-        >
-          {(resolvedTheme ?? theme) === "dark" ? (
-            <Sun size={18} />
-          ) : (
-            <Moon size={18} />
-          )}
-        </button>
+        {mounted && (
+          <button
+            onClick={() =>
+              setTheme((resolvedTheme ?? theme) === "dark" ? "light" : "dark")
+            }
+            className="p-2.5 text-text-muted hover:text-foreground hover:bg-card-bg rounded-xl transition-all duration-200"
+            aria-label="Toggle theme"
+          >
+            {(resolvedTheme ?? theme) === "dark" ? (
+              <Sun size={18} />
+            ) : (
+              <Moon size={18} />
+            )}
+          </button>
+        )}
       </div>
     </header>
   );
