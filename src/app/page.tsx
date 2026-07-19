@@ -6,7 +6,11 @@ import MobileNav from '@/components/MobileNav';
 import MobileBottomBar from '@/components/MobileBottomBar';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
+import Experience from '@/components/Experience';
 import SkillsAndCP from '@/components/SkillsAndCP';
+import Testimonials from '@/components/Testimonials';
+import Blog from '@/components/Blog';
+import Newsletter from '@/components/Newsletter';
 import Contact from '@/components/Contact';
 
 export default function Home() {
@@ -27,7 +31,11 @@ export default function Home() {
         <main className="flex-1 w-full">
           <Hero />
           <Projects />
+          <Experience />
           <SkillsAndCP />
+          <Testimonials />
+          <Blog />
+          <Newsletter />
           <Contact />
         </main>
 

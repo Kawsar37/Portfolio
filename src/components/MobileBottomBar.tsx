@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Globe } from "lucide-react";
+import { Globe, ArrowUp } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 export default function MobileBottomBar() {
@@ -45,8 +45,20 @@ export default function MobileBottomBar() {
         </span>
       </div>
 
+      {/* Back to Top */}
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-text-muted hover:text-foreground bg-card-bg border border-border rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+          aria-label="Back to top"
+        >
+          <ArrowUp size={14} />
+          <span>Back to Top</span>
+        </button>
+      </div>
+
       {/* Copyright */}
-      <div className="text-center text-xs text-text-muted mt-6">
+      <div className="text-center text-xs text-text-muted mt-4">
         <p>© {new Date().getFullYear()} MD. Kawsar Ali. All rights reserved.</p>
       </div>
     </footer>

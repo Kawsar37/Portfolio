@@ -11,34 +11,59 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    message?: string;
+  }>({});
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
 
+  const validate = () => {
+    const newErrors: typeof errors = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email";
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+    if (!validate()) return;
 
     setStatus("submitting");
 
-    // Simulate API request
     try {
-      setStatus("submitting");
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+        }),
       });
 
       if (res.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
+        setErrors({});
       } else {
         setStatus("error");
       }
-    } catch (err) {
+    } catch {
       setStatus("error");
     }
   };
@@ -48,6 +73,9 @@ export default function Contact() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name as keyof typeof errors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const followCards = [
@@ -115,8 +143,13 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Enter your name"
-                    className="w-full bg-background border border-card-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-foreground transition-colors placeholder:text-text-muted/50"
+                    className={`w-full bg-background border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-foreground transition-colors placeholder:text-text-muted/50 ${
+                      errors.name ? "border-red-500" : "border-card-border"
+                    }`}
                   />
+                  {errors.name && (
+                    <p className="text-xs text-red-500 mt-1.5">{errors.name}</p>
+                  )}
                 </div>
 
                 <div>
@@ -134,8 +167,13 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Enter your email"
-                    className="w-full bg-background border border-card-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-foreground transition-colors placeholder:text-text-muted/50"
+                    className={`w-full bg-background border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-foreground transition-colors placeholder:text-text-muted/50 ${
+                      errors.email ? "border-red-500" : "border-card-border"
+                    }`}
                   />
+                  {errors.email && (
+                    <p className="text-xs text-red-500 mt-1.5">{errors.email}</p>
+                  )}
                 </div>
 
                 <div>
@@ -153,8 +191,13 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Type your message here..."
-                    className="w-full bg-background border border-card-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-foreground transition-colors placeholder:text-text-muted/50 resize-none"
+                    className={`w-full bg-background border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-foreground transition-colors placeholder:text-text-muted/50 resize-none ${
+                      errors.message ? "border-red-500" : "border-card-border"
+                    }`}
                   />
+                  {errors.message && (
+                    <p className="text-xs text-red-500 mt-1.5">{errors.message}</p>
+                  )}
                 </div>
 
                 <button
@@ -180,6 +223,12 @@ export default function Contact() {
                     </>
                   )}
                 </button>
+
+                {status === "error" && (
+                  <p className="text-xs text-red-500 text-center mt-2">
+                    Something went wrong. Please try again later.
+                  </p>
+                )}
               </form>
             </div>
           </div>

@@ -3,12 +3,42 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
+  Code2,
+  Eye,
+} from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 
 const PROJECTS_PER_PAGE = 3;
 
 const projectList = [
+  {
+    id: 1,
+    title: "Intervue",
+    subtitle: "AI-Powered Interview Preparation Platform",
+    description:
+      "Architected a full-stack AI interview platform with text and voice interview modes using Next.js and TypeScript. Developed 25+ RESTful APIs and 8 MongoDB collections, integrating Gemini AI for personalized interview question generation.Engineered resume parsing, PDF text extraction, secure authentication, and Web Speech API–powered voice interviews.",
+    image: "/asset/project5.png",
+    github: "https://github.com/Kawsar37/Intervue",
+    live: "https://intervue-green.vercel.app",
+    embed: null,
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "BetterAuth",
+      "Google Gemini AI",
+      "Tailwind CSS",
+      "Web Speech API",
+    ],
+    color: "#6366f1",
+  },
   {
     id: 1,
     title: "SkillSwap",
@@ -18,6 +48,7 @@ const projectList = [
     image: "/asset/project4.png",
     github: "https://github.com/Kawsar37/skill-swap-frontend",
     live: "https://skill-swap-frontend-by-kawsar.vercel.app/",
+    embed: null,
     tags: ["Next.js", "Node.js", "MongoDB", "Stripe", "BetterAuth"],
     color: "#6366f1",
   },
@@ -30,6 +61,7 @@ const projectList = [
     image: "/asset/project1.png",
     github: "https://github.com/Kawsar37/idea-vault-frontend",
     live: "https://idea-vault-frontend-eight.vercel.app",
+    embed: null,
     tags: ["Next.js", "Express.js", "MongoDB", "BetterAuth", "HeroUI"],
     color: "#8b5cf6",
   },
@@ -42,6 +74,7 @@ const projectList = [
     image: "/asset/project2.png",
     github: "https://github.com/Kawsar37/tiles-gallery",
     live: "https://tiles-gallery-by-kawsar.vercel.app",
+    embed: null,
     tags: ["Next.js", "Better Auth", "DaisyUI", "Swiper.js"],
     color: "#3b82f6",
   },
@@ -54,6 +87,8 @@ const projectList = [
     image: "/asset/project3.png",
     github: "https://github.com/Kawsar37/digi-tools-platform",
     live: "https://digi-tools-platform-by-kawsar.netlify.app",
+    embed:
+      "https://codesandbox.io/embed/digi-tools-platform-hqk4?view=preview&module=%2Fsrc%2FApp.jsx",
     tags: ["React.js", "Tailwind CSS", "daisyUI", "Fetch API"],
     color: "#06b6d4",
   },
@@ -76,10 +111,20 @@ const slideVariants = {
 export default function Projects() {
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [previewMode, setPreviewMode] = useState<"image" | "code">("image");
+
+  const trackClick = (projectName: string, type: "live" | "github") => {
+    // Log click event (replace with analytics service later)
+    console.log(`[Project Click] ${projectName} - ${type}`, {
+      timestamp: new Date().toISOString(),
+      project: projectName,
+      action: type,
+    });
+  };
 
   const paginatedProjects = projectList.slice(
     currentPage * PROJECTS_PER_PAGE,
-    (currentPage + 1) * PROJECTS_PER_PAGE
+    (currentPage + 1) * PROJECTS_PER_PAGE,
   );
 
   const goToPage = (page: number) => {
@@ -152,13 +197,54 @@ export default function Projects() {
                 >
                   {/* Project Image */}
                   <div className="relative w-full aspect-[16/9] bg-gradient-to-br from-card-bg to-background overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                      sizes="(max-width: 1024px) 100vw, 500px"
-                    />
+                    {previewMode === "image" || !project.embed ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                        sizes="(max-width: 1024px) 100vw, 500px"
+                      />
+                    ) : (
+                      <iframe
+                        src={project.embed}
+                        className="w-full h-full border-0"
+                        title={`${project.title} - Live Preview`}
+                        loading="lazy"
+                      />
+                    )}
+
+                    {/* Preview Toggle */}
+                    {project.embed && (
+                      <div className="absolute top-3 left-3 z-10 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setPreviewMode("image");
+                          }}
+                          className={`p-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
+                            previewMode === "image"
+                              ? "bg-background/90 text-foreground backdrop-blur-sm"
+                              : "bg-background/50 text-text-muted backdrop-blur-sm hover:bg-background/70"
+                          }`}
+                        >
+                          <Eye size={12} />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setPreviewMode("code");
+                          }}
+                          className={`p-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
+                            previewMode === "code"
+                              ? "bg-background/90 text-foreground backdrop-blur-sm"
+                              : "bg-background/50 text-text-muted backdrop-blur-sm hover:bg-background/70"
+                          }`}
+                        >
+                          <Code2 size={12} />
+                        </button>
+                      </div>
+                    )}
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-card-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -168,6 +254,7 @@ export default function Projects() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackClick(project.title, "live")}
                         className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-background/90 backdrop-blur-sm text-foreground border border-border opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105"
                       >
                         Live Preview
@@ -224,6 +311,7 @@ export default function Projects() {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => trackClick(project.title, "live")}
                           className="inline-flex items-center gap-1.5 px-3.5 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg bg-foreground text-background hover:opacity-90 transition-all duration-300 hover:scale-[1.02] active:scale-95"
                         >
                           <span>Live</span>
@@ -234,6 +322,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackClick(project.title, "github")}
                         className="inline-flex items-center gap-1.5 px-3.5 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg bg-card-bg border border-border text-foreground hover:bg-border transition-all duration-300 hover:scale-[1.02] active:scale-95"
                       >
                         <FaGithub size={11} />

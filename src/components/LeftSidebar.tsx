@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { User, FolderGit, Zap, Mail, Sun, Moon, ArrowUp } from "lucide-react";
+import { User, FolderGit, Briefcase, Zap, BookOpen, Mail, Sun, Moon, ArrowUp } from "lucide-react";
 
 export default function LeftSidebar() {
   const { theme, setTheme } = useTheme();
@@ -25,7 +25,7 @@ export default function LeftSidebar() {
       });
     }, observerOptions);
 
-    const sections = ["hero", "projects", "skills", "contact"];
+    const sections = ["hero", "projects", "experience", "skills", "blog", "contact"];
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -49,7 +49,9 @@ export default function LeftSidebar() {
   const navItems = [
     { id: "hero", icon: User, label: "Profile" },
     { id: "projects", icon: FolderGit, label: "Projects" },
-    { id: "skills", icon: Zap, label: "Skills & CP" },
+    { id: "experience", icon: Briefcase, label: "Experience" },
+    { id: "skills", icon: Zap, label: "Skills" },
+    { id: "blog", icon: BookOpen, label: "Blog" },
     { id: "contact", icon: Mail, label: "Contact" },
   ];
 

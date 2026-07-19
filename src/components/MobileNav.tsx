@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { User, FolderGit, Zap, Mail, Sun, Moon } from "lucide-react";
+import { User, FolderGit, Briefcase, Zap, BookOpen, Mail, Sun, Moon } from "lucide-react";
 
 export default function MobileNav() {
   const { theme, resolvedTheme, setTheme } = useTheme();
@@ -20,7 +20,7 @@ export default function MobileNav() {
         if (entry.isIntersecting) setActiveSection(entry.target.id);
       });
     }, observerOptions);
-    ["hero", "projects", "skills", "contact"].forEach((id) => {
+    ["hero", "projects", "experience", "skills", "blog", "contact"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
@@ -34,7 +34,9 @@ export default function MobileNav() {
   const navItems = [
     { id: "hero", icon: User, label: "Home" },
     { id: "projects", icon: FolderGit, label: "Projects" },
+    { id: "experience", icon: Briefcase, label: "Experience" },
     { id: "skills", icon: Zap, label: "Skills" },
+    { id: "blog", icon: BookOpen, label: "Blog" },
     { id: "contact", icon: Mail, label: "Contact" },
   ];
 

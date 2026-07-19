@@ -1,0 +1,16 @@
+{
+  "name": "MD. Kawsar Ali | Full Stack Developer",
+  "short_name": "Kawsar Ali",
+  "description": "Portfolio of MD. Kawsar Ali, Full Stack Developer specializing in React.js, Next.js, TypeScript, Node.js, and competitive programming.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030303",
+  "theme_color": "#030303",
+  "icons": [
+    {
+      "src": "/asset/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
