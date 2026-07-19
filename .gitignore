@@ -13,6 +13,8 @@
 # testing
 /coverage
 
+/.mimocode
+
 # next.js
 /.next/
 /out/
