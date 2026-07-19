@@ -37,10 +37,10 @@ const projectList = [
       "Tailwind CSS",
       "Web Speech API",
     ],
-    color: "#6366f1",
+    color: "#54b4d3",
   },
   {
-    id: 1,
+    id: 2,
     title: "SkillSwap",
     subtitle: "Freelance Micro-Task Marketplace",
     description:
@@ -53,7 +53,7 @@ const projectList = [
     color: "#6366f1",
   },
   {
-    id: 2,
+    id: 3,
     title: "IdeaVault",
     subtitle: "Startup Idea Sharing Platform",
     description:
@@ -66,7 +66,7 @@ const projectList = [
     color: "#8b5cf6",
   },
   {
-    id: 3,
+    id: 4,
     title: "Tiles Gallery",
     subtitle: "Authentication & Access Control",
     description:
@@ -79,7 +79,7 @@ const projectList = [
     color: "#3b82f6",
   },
   {
-    id: 4,
+    id: 5,
     title: "DigiTools",
     subtitle: "Digital Products Web App",
     description:
