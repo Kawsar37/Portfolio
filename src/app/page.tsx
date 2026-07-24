@@ -16,7 +16,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-background text-foreground transition-colors">
+    <div className="min-h-dvh flex flex-col lg:flex-row bg-background text-foreground transition-colors">
       {/* Mobile: Top bar — logo + theme toggle */}
       <MobileNav />
 
