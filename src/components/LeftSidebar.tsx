@@ -47,14 +47,13 @@ export default function LeftSidebar() {
         }}
         className="relative group"
       >
-        <div className="w-10 h-10 md:w-12 md:h-12 overflow-hidden flex items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110">
+        <div className="w-10 h-10 md:w-12 md:h-12 overflow-hidden flex items-center justify-center rounded-xl transition-transform duration-300">
           <Image
-            src="/asset/final_logo.svg"
+            src="/asset/kawsar-logo.svg"
             alt="MD. Kawsar Ali Logo"
-            width={40}
-            height={40}
-            className="w-full h-full object-contain bg-black rounded-xl"
-            priority
+            width={100}
+            height={100}
+            className="w-full h-full "
           />
         </div>
         <span className="absolute left-14 md:left-16 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-foreground text-background text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap shadow-lg pointer-events-none z-50">
@@ -63,7 +62,11 @@ export default function LeftSidebar() {
       </a>
 
       {/* Nav */}
-      <nav className="flex flex-col gap-2" role="navigation" aria-label="Main navigation">
+      <nav
+        className="flex flex-col gap-2"
+        role="navigation"
+        aria-label="Main navigation"
+      >
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;

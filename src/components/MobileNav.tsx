@@ -27,11 +27,11 @@ export default function MobileNav() {
         >
           <div className="w-8 h-8 flex items-center justify-center">
             <Image
-              src="/asset/final_logo.svg"
+              src="/asset/kawsar-logo.svg"
               alt="Logo"
               width={32}
               height={32}
-              className="object-contain bg-black rounded-lg"
+              className="object-contain "
               priority
             />
           </div>
