@@ -20,7 +20,7 @@ const projectList = [
     title: "Intervue",
     subtitle: "AI-Powered Interview Preparation Platform",
     description:
-      "Architected a full-stack AI interview platform with text and voice interview modes using Next.js and TypeScript. Developed 25+ RESTful APIs and 8 MongoDB collections, integrating Gemini AI for personalized interview question generation.Engineered resume parsing, PDF text extraction, secure authentication, and Web Speech API–powered voice interviews.",
+      "Full-stack AI interview platform with text and voice interview modes using Next.js with 25+ RESTful APIs and 8 MongoDB collections, integrating Gemini AI for personalized interview question generation.",
     image: "/asset/project5.png",
     github: "https://github.com/Kawsar37/Intervue",
     live: "https://intervue-green.vercel.app",
