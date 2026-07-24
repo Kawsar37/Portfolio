@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog-data";
 
-const BASE_URL = "https://kawsar.engineer";
+const BASE_URL = "https://www.kawsar.engineer";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
