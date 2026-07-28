@@ -10,12 +10,14 @@ export default function Contact() {
     name: "",
     email: "",
     message: "",
+    hp_field: "",
   });
   const [errors, setErrors] = useState<{
     name?: string;
     email?: string;
     message?: string;
   }>({});
+  const [serverError, setServerError] = useState<string | null>(null);
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -42,6 +44,7 @@ export default function Contact() {
     if (!validate()) return;
 
     setStatus("submitting");
+    setServerError(null);
 
     try {
       const res = await fetch("/api/contact", {
@@ -53,18 +56,23 @@ export default function Contact() {
           name: formData.name.trim(),
           email: formData.email.trim(),
           message: formData.message.trim(),
+          hp_field: formData.hp_field,
         }),
       });
 
-      if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success) {
         setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "", hp_field: "" });
         setErrors({});
       } else {
         setStatus("error");
+        setServerError(data.error || "Something went wrong. Please try again later.");
       }
     } catch {
       setStatus("error");
+      setServerError("Network error. Please try again later.");
     }
   };
 
@@ -128,6 +136,18 @@ export default function Contact() {
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Honeypot Anti-Bot Field (Hidden from human users) */}
+                <div className="hidden" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="hp_field"
+                    tabIndex={-1}
+                    value={formData.hp_field}
+                    onChange={handleChange}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div>
                   <label
                     htmlFor="name"
@@ -226,7 +246,7 @@ export default function Contact() {
 
                 {status === "error" && (
                   <p className="text-xs text-red-500 text-center mt-2">
-                    Something went wrong. Please try again later.
+                    {serverError || "Something went wrong. Please try again later."}
                   </p>
                 )}
               </form>
