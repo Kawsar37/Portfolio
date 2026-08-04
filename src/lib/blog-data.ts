@@ -14,154 +14,159 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
-    slug: "icpc-journey",
-    title: "From Campus to Regionals: My ICPC Journey",
+    slug: "icpc-journey-2023-2024",
+    title: "My ICPC Journey: Lessons from Asia Dhaka Regional 2023 & 2024",
     excerpt:
-      "How a team of three from BAUET prepared for and competed in the ICPC Asia Dhaka Regional Contest — the late nights, the algorithm grind, and what it taught me about teamwork.",
+      "Reflecting on our intense 5-hour competitive programming battles at the ICPC Asia Dhaka Regional Contests — from Bauet_Twiested_Minds in 2023 to leading BAUET_Alphacentauri in 2024.",
     date: "Dec 2024",
-    readTime: "8 min read",
-    tags: ["ICPC", "Competitive Programming", "Story"],
-    images: [],
-    content: `The journey started six months before Regionals. Our team — me, Rafiq, and Tanvir — would meet every evening at the computer lab, solving 3-4 problems daily. We divided responsibilities: I focused on graph algorithms and dynamic programming, Rafiq handled data structures, and Tanvir specialized on geometry and string problems.
-
-The real breakthrough came when we stopped solving problems individually and started thinking as a unit. We developed a system: one person would read the problem statement aloud while the other two brainstormed approaches. This cut our problem-reading time in half and helped us catch edge cases we'd each miss alone.
-
-**The Preparation Grind**
-
-We followed a strict schedule. Monday through Thursday was problem solving — we'd rotate through Codeforces, AtCoder, and past ICPC regionals. Friday was mock contests: full 5-hour simulations under real conditions. Saturday was review day — we'd revisit problems we couldn't solve and write up solutions.
-
-The hardest part wasn't the algorithms — it was managing burnout. By month four, we were exhausted. Our breakthrough came when we started taking one full rest day per week. Counterintuitively, our solve rate went up.
-
-**The Actual Contest**
-
-During the actual contest, we solved 5 problems in the first 3 hours, then hit a wall. The 6th problem took us 2 hours of combined brainpower. I was working on the graph component while Tanvir optimized the geometry part. Rafiq kept checking our edge cases.
-
-Crossing that threshold felt like breaking through a ceiling. When we finally AC'd that problem, the whole team erupted. We didn't win a medal that year, but the experience taught me more about collaboration and pressure management than any project ever could.
-
-**What I Learned**
-
-1. **Team chemistry matters more than individual skill.** Three average programmers who communicate well will beat three geniuses who can't coordinate.
-2. **Rest is productive.** Burning out before regionals helps nobody.
-3. **Review everything.** The problems we solved fastest were the ones we'd practiced in similar forms before.
-
-Would I do it again? In a heartbeat. ICPC taught me how to think under pressure, how to collaborate on hard problems, and how to fail gracefully — skills I use every day as a developer.`,
+    readTime: "6 min read",
+    tags: ["ICPC", "Competitive Programming", "Leadership", "Teamwork"],
+    images: ["/asset/icpc/icpc2023.jpg", "/asset/icpc/icpc2024.jpg"],
     link: "https://icpc.global/ICPCID/992DOU25IVCQ",
+    content: `Participating in the International Collegiate Programming Contest (ICPC) Asia Dhaka Regional has been one of the defining experiences of my undergraduate life at BAUET. The 5-hour intense contest environment tests not only algorithmic problem-solving ability but also endurance, strategic thinking, and team dynamics.
+
+## ICPC Asia Dhaka Regional 2023-24: Bauet_Twiested_Minds
+
+In the 2023-2024 ICPC Asia Dhaka Regional Contest, I represented BAUET with my team **Bauet_Twiested_Minds**. It was our first major regional arena exposure, facing off against top competitive programmers from across the nation.
+
+- **Team Name**: Bauet_Twiested_Minds
+- **Rank Achieved**: 139
+- **Problems Solved**: 3 Problems
+
+**Key Takeaways & Experience:**
+The 5-hour long contest was an extraordinary learning curve. Managing pressure during freeze time, allocating time effectively between fast solves and tough algorithmic problems, and communicating clearly under strict time constraints were key challenges. We learned how essential back-solving and edge-case checking on paper before hitting the editor really are.
+
+## ICPC Asia Dhaka Regional 2024-25: BAUET_Alphacentauri
+
+Returning for the 2024-2025 season, I stepped up into the role of **Team Leader** for our team **BAUET_Alphacentauri**. Armed with lessons from the previous year, we aimed for better strategy, problem distribution, and team leadership.
+
+- **Team Name**: BAUET_Alphacentauri
+- **Rank Achieved**: 217
+- **Problems Solved**: 3 Problems
+- **Role**: Team Leader
+
+**Leadership & Growth:**
+As team leader, my responsibility expanded beyond code to guiding overall strategy—deciding when to pivot from a stuck submission, managing morale during long dry spells in the contest, and maintaining calm focus. Leading a team in a high-stakes 5-hour regional contest taught me lessons in decision-making and collaboration that carry over directly into real-world software engineering projects.
+
+## Final Reflection
+
+Across both years, ICPC instilled in me a deep passion for algorithmic optimization, structured problem breakdown, and working seamlessly within a technical team. The camaraderie, late-night mock contests, and adrenaline of getting an Accepted (AC) verdict make every moment unforgettable.`,
   },
   {
     id: 2,
-    slug: "ai-automation-workflow",
-    title: "How I Use AI to Automate My Development Workflow",
+    slug: "offline-signature-verification-siamese-networks",
+    title:
+      "Offline Signature Verification System Using Siamese Networks with Four Distinct Backbone Architectures",
     excerpt:
-      "A practical look at the AI tools, prompts, and automations I use daily — from code generation to testing to documentation.",
-    date: "Jan 2025",
+      "Our research paper published in IEEE ICECTE 2026 presenting an offline signature forgery detection system evaluated on the CEDAR dataset using MobileNetV2, VGG16, InceptionV3, and Custom CNN backbones.",
+    date: "Jan 31, 2026",
     readTime: "5 min read",
-    tags: ["AI", "Automation", "Productivity"],
-    images: ["/asset/project1.png"],
-    content: `AI didn't replace my workflow — it amplified it. Here's exactly how I use AI tools every day as a full-stack developer.
+    tags: [
+      "Research",
+      "IEEE",
+      "Deep Learning",
+      "Siamese Networks",
+      "Biometrics",
+    ],
+    images: [
+      "/asset/publication-day/img1.jpg",
+      "/asset/publication-day/img2.jpg",
+      "/asset/publication-day/img3.jpg",
+      "/asset/publication-day/img4.jpg",
+      "/asset/publication-day/img5.jpg",
+    ],
+    link: "https://doi.org/10.1109/ICECTE69292.2026.11429465",
+    content: `I am proud to share our latest research work published in the **2026 5th International Conference on Electrical, Computer & Telecommunication Engineering (ICECTE), IEEE** on January 31, 2026.
 
-**My AI Stack**
+## Paper Overview
 
-- **ChatGPT** — Boilerplate generation, API documentation, regex patterns
-- **Gemini** — Code review suggestions, explaining legacy code
-- **Custom Prompts** — Test case generation, commit messages, PR descriptions
+**Title**: Offline Signature Verification System Using Siamese Networks with Four Distinct Backbone Architectures: MobileNetV2, VGG16, InceptionV3 and a Custom CNN  
+**Conference**: IEEE | 2026 5th International Conference on Electrical, Computer & Telecommunication Engineering (ICECTE)  
+**Publication Date**: January 31, 2026  
+**DOI**: 10.1109/ICECTE69292.2026.11429465  
+**Keywords**: Signature Verification, Siamese Networks, Deep Learning, Biometric Authentication, CNN, MobileNetV2, VGG16, InceptionV3
 
-**The Biggest Win: Automated Testing**
+## Abstract & Research Summary
 
-The biggest productivity gain came from automating test generation. I wrote a prompt template that takes a function signature and generates test cases:
+This research presents an offline signature verification system based on **Siamese Neural Networks** using four distinct backbone architectures: **MobileNetV2, VGG16, InceptionV3, and a Custom CNN**. The study evaluates the effectiveness of deep learning techniques for biometric authentication and signature forgery detection using the standard **CEDAR signature dataset**.
 
-\`\`\`
-Given this function signature: [function]
-Generate Jest test cases covering:
-- Happy path
-- Edge cases
-- Error handling
-- Boundary conditions
-\`\`\`
+Key aspects of the study include:
+- **Architecture**: Comparative evaluation of feature extraction capabilities across standard pre-trained architectures vs. custom lightweight CNN designs.
+- **Verification Metric**: Contrastive loss evaluation to measure similarity distance between genuine and forged signature pairs.
+- **Application**: Enhanced security solutions for banking, legal document processing, and automated verification workflows.
 
-This saves me roughly 2 hours per sprint. But here's the catch — you still need to review every test. AI generates reasonable tests, but it misses business logic edge cases that only a human who understands the domain would catch.
+## Publication Day & Presentation Experience
 
-**Code Review Automation**
-
-I use Gemini to do a first pass on my own PRs before requesting team reviews. It catches:
-- Unused imports
-- Inconsistent naming
-- Potential null pointer issues
-- Missing error handling
-
-This means my team reviews focus on architecture and logic, not formatting.
-
-**Documentation Generation**
-
-Writing docs is my least favorite task. Now I use AI to generate first drafts:
-1. Write the code
-2. Feed it to ChatGPT with "Write developer documentation for this function"
-3. Edit the output for accuracy and tone
-
-What used to take 30 minutes now takes 5.
-
-**The Rules I Follow**
-
-1. **Never commit AI-generated code without reviewing it.** It will look right and be subtly wrong.
-2. **Use AI for first drafts, not final products.** The 80/20 rule applies — AI gets you 80% there, you finish the last 20%.
-3. **Treat AI like a junior developer.** It's fast and eager, but it needs supervision.
-
-**The Future**
-
-I'm experimenting with building custom AI agents that integrate into our CI/CD pipeline — automatically suggesting fixes for failed tests, generating deployment notes, and even preparing rollback plans. The potential is enormous.`,
+Presenting our paper at ICECTE 2026 was a rewarding milestone. Engaging with domain experts, discussing neural network optimization techniques, and receiving positive feedback from the computer vision research community reinforced my commitment to pursuing practical AI & deep learning research.`,
   },
   {
     id: 3,
-    slug: "geo-vs-seo",
-    title: "GEO vs SEO: What Every Developer Should Know in 2025",
+    slug: "bauet-tech-fair-2025",
+    title: "Double Victory & Leadership at BAUET Tech Fair 2025",
     excerpt:
-      "Search is evolving. Generative Engine Optimization is reshaping how content gets discovered. Here's what matters and what to do about it.",
+      "Securing 1st Place in the Intra-University Programming Contest as Team Leader, serving on the Event Management Team, and receiving honors as Vice President of BAUET Computer Society.",
     date: "Feb 2025",
-    readTime: "6 min read",
-    tags: ["SEO", "GEO", "Web"],
-    images: ["/asset/project2.png", "/asset/project3.png"],
-    content: `The way people find information is changing fundamentally. If you're a developer building websites, you need to understand the shift from SEO to GEO.
+    readTime: "4 min read",
+    tags: ["Programming Contest", "Tech Fair", "BAUET", "Leadership", "Awards"],
+    images: [
+      "/asset/tech-fair/img1.jpg",
+      "/asset/tech-fair/img2.jpg",
+      "/asset/tech-fair/img3.jpg",
+    ],
+    content: `BAUET Tech Fair 2025 was an unforgettable event filled with intense competition, student innovation, and organizational leadership. I had the privilege of contributing to the event in multiple roles — as a contestant, team leader, organizer, and executive member.
 
-**What is SEO?**
+## 1st Place — Intra University Programming Contest
 
-Search Engine Optimization is about ranking in Google's blue links. You optimize for crawlers, build backlinks, target keywords, and hope to land on page one.
+Our team achieved **1st Place** in the flagship Intra-University Programming Contest by solving **4 problems**.
 
-**What is GEO?**
+- **Role**: Team Leader (Md. Kawsar Ali, CSE-14)
+- **Teammates**: HM Jubayed (CSE-16), Rifath Sarker (CSE-16)
+- **Problems Solved**: 4 Problems
 
-Generative Engine Optimization is about being cited by AI assistants — ChatGPT, Gemini, Perplexity. Instead of competing for link positions, you're competing to be the source an AI synthesizes its answer from.
+Leading the team to victory required fast tactical planning, distributing problems based on member strengths, and maintaining speed without accumulating penalty points.
 
-**Why This Matters**
+## Leadership & Event Management
 
-Google's AI Overviews now appear on 30%+ of searches. ChatGPT handles billions of queries monthly. If your content isn't optimized for AI consumption, you're invisible to a growing portion of search traffic.
+Beyond competing, I contributed actively behind the scenes:
+- **Event Management Team**: Worked on organizing the contest environment, logistics, dynamic problem distribution, and smooth execution throughout Tech Fair 2025.
+- **Vice President Prize & Recognition**: Honored with a special prize and recognition for my leadership contributions as **Vice President of the BAUET Computer Society**.
 
-**The Key Differences**
+It was a rewarding experience balancing operational execution for a campus-wide tech festival while competing at the highest level!`,
+  },
+  {
+    id: 4,
+    slug: "precise-energy-2025-rosatom",
+    title:
+      "Precise Energy 2025: Volunteering & Practical Contest by Rosatom Russia",
+    excerpt:
+      "Conducting the campus quiz competition and participating in the practical engineering contest organized by Rosatom Russia state atomic energy corporation.",
+    date: "Oct 26, 2025",
+    readTime: "4 min read",
+    tags: [
+      "Rosatom",
+      "Precise Energy",
+      "Volunteering",
+      "Quiz Contest",
+      "Event",
+    ],
+    images: [
+      "/asset/precise-energy/img1.jpg",
+      "/asset/precise-energy/img2.jpg",
+      "/asset/precise-energy/img3.jpg",
+      "/asset/precise-energy/img4.jpg",
+    ],
+    content: `On **October 26, 2025**, BAUET hosted the **Precise Energy 2025** event, organized by **Rosatom Russia** (State Atomic Energy Corporation Rosatom). The event brought together university teams to engage in nuclear energy awareness, science quizzes, and practical engineering challenges.
 
-| Factor | SEO | GEO |
-|--------|-----|-----|
-| Target | Google crawlers | LLMs |
-| Success metric | Rankings | Citations |
-| Content style | Keyword-stuffed | Fact-dense |
-| Structure | Meta tags, headings | Structured data, clear claims |
-| Authority | Backlinks | Source credibility |
+## My Role & Volunteering Experience
 
-**What Developers Should Do**
+As a student volunteer for Rosatom Russia:
+- I worked directly with the Rosatom event team to conduct a campus-wide **quiz contest** for students.
+- Facilitated team registrations, question coordination, and stage management.
+- Coordinated with participating university teams invited to join the **practical engineering contest**.
 
-1. **Add structured data to everything.** Schema.org markup helps both crawlers and LLMs understand your content.
+## Key Highlights & Reflection
 
-2. **Write clear, factual claims.** AI models cite sources that make unambiguous statements. "X reduces latency by 40%" is citable. "X is pretty fast" is not.
-
-3. **Build topical authority.** Write multiple pieces on the same topic. AI models favor sources with consistent expertise.
-
-4. **Optimize for conversational queries.** People ask AI questions like they'd ask a friend. Your content should answer those natural-language questions directly.
-
-5. **Make your content machine-readable.** Clean HTML, proper headings, defined lists, and tables are easier for LLMs to parse than wall-of-text paragraphs.
-
-**The Portfolio Angle**
-
-Your portfolio website is content too. If you write case studies, project descriptions, or blog posts, structure them so AI assistants can cite your work. Use clear headings, define your contributions explicitly, and link to verifiable results.
-
-**The Bottom Line**
-
-SEO isn't dead — it's evolving. GEO is the next layer on top. Developers who understand both will have a significant advantage in visibility and career opportunities.`,
+Collaborating with an international organization like Rosatom provided great insights into technical event management, public speaking, and organizing large-scale academic competitions. It was a thrilling experience seeing university students engage enthusiastically with complex energy concepts and practical problem solving!`,
   },
 ];
 

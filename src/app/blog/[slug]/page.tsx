@@ -40,12 +40,40 @@ export default async function BlogPostPage({ params }: Props) {
 
   if (!post) notFound();
 
-  // Convert markdown-like bold to HTML and paragraphs
+  // Convert markdown content to structured HTML elements
   const formatContent = (text: string) => {
     return text.split("\n\n").map((paragraph, i) => {
-      // Handle headings (lines starting with **)
-      if (paragraph.startsWith("**") && paragraph.endsWith("**")) {
-        const heading = paragraph.replace(/\*\*/g, "");
+      const trimmed = paragraph.trim();
+
+      // Handle markdown ## Headings
+      if (trimmed.startsWith("## ")) {
+        const heading = trimmed.replace(/^##\s+/, "");
+        return (
+          <h2
+            key={i}
+            className="text-xl md:text-2xl font-extrabold text-foreground mt-10 mb-4 border-b border-border/50 pb-2"
+          >
+            {formatInlineBold(heading)}
+          </h2>
+        );
+      }
+
+      // Handle markdown ### Headings
+      if (trimmed.startsWith("### ")) {
+        const heading = trimmed.replace(/^###\s+/, "");
+        return (
+          <h3
+            key={i}
+            className="text-lg md:text-xl font-bold text-foreground mt-8 mb-3"
+          >
+            {formatInlineBold(heading)}
+          </h3>
+        );
+      }
+
+      // Handle bold-only headings (**Heading**)
+      if (trimmed.startsWith("**") && trimmed.endsWith("**") && !trimmed.slice(2, -2).includes("\n")) {
+        const heading = trimmed.slice(2, -2);
         return (
           <h2
             key={i}
@@ -57,8 +85,8 @@ export default async function BlogPostPage({ params }: Props) {
       }
 
       // Handle code blocks
-      if (paragraph.includes("```")) {
-        const code = paragraph.replace(/```\w*\n?/g, "").trim();
+      if (trimmed.includes("```")) {
+        const code = trimmed.replace(/```\w*\n?/g, "").trim();
         return (
           <pre
             key={i}
@@ -69,16 +97,16 @@ export default async function BlogPostPage({ params }: Props) {
         );
       }
 
-      // Handle lists
-      if (paragraph.includes("\n- ")) {
-        const lines = paragraph.split("\n");
+      // Handle bullet lists
+      if (trimmed.startsWith("- ") || trimmed.includes("\n- ")) {
+        const lines = trimmed.split("\n");
         const listItems = lines
-          .filter((l) => l.startsWith("- "))
-          .map((l) => l.replace("- ", ""));
+          .filter((l) => l.trim().startsWith("- "))
+          .map((l) => l.trim().replace(/^- /, ""));
         return (
           <ul
             key={i}
-            className="list-disc list-inside space-y-2 my-4 text-sm text-text-muted"
+            className="list-disc list-inside space-y-2 my-4 text-sm md:text-base text-text-muted leading-relaxed"
           >
             {listItems.map((item, j) => (
               <li key={j}>{formatInlineBold(item)}</li>
@@ -88,12 +116,12 @@ export default async function BlogPostPage({ params }: Props) {
       }
 
       // Handle numbered lists
-      if (/^\d+\./.test(paragraph)) {
-        const items = paragraph.split("\n").filter((l) => l.trim());
+      if (/^\d+\./.test(trimmed)) {
+        const items = trimmed.split("\n").filter((l) => l.trim());
         return (
           <ol
             key={i}
-            className="list-decimal list-inside space-y-2 my-4 text-sm text-text-muted"
+            className="list-decimal list-inside space-y-2 my-4 text-sm md:text-base text-text-muted leading-relaxed"
           >
             {items.map((item, j) => (
               <li key={j}>{formatInlineBold(item.replace(/^\d+\.\s*/, ""))}</li>
@@ -108,7 +136,7 @@ export default async function BlogPostPage({ params }: Props) {
           key={i}
           className="text-sm md:text-base text-text-muted leading-relaxed mb-4"
         >
-          {formatInlineBold(paragraph)}
+          {formatInlineBold(trimmed)}
         </p>
       );
     });
@@ -120,7 +148,7 @@ export default async function BlogPostPage({ params }: Props) {
       if (part.startsWith("**") && part.endsWith("**")) {
         return (
           <strong key={i} className="text-foreground font-bold">
-            {part.replace(/\*\*/g, "")}
+            {part.slice(2, -2)}
           </strong>
         );
       }
@@ -187,29 +215,35 @@ export default async function BlogPostPage({ params }: Props) {
         {post.images.length > 0 && (
           <div className="mb-10">
             {post.images.length === 1 ? (
-              <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-card-border">
+              <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-card-border border border-border">
                 <Image
                   src={post.images[0]}
                   alt={post.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 768px"
-                  className="object-cover"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
                   priority
                 />
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4">
+              <div
+                className={`grid gap-4 ${
+                  post.images.length === 2
+                    ? "grid-cols-1 sm:grid-cols-2"
+                    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                }`}
+              >
                 {post.images.map((img, i) => (
                   <div
                     key={i}
-                    className="relative aspect-[16/9] rounded-xl overflow-hidden bg-card-border"
+                    className="relative aspect-[16/10] rounded-xl overflow-hidden bg-card-border border border-border shadow-sm group"
                   >
                     <Image
                       src={img}
                       alt={`${post.title} - Image ${i + 1}`}
                       fill
-                      sizes="(max-width: 768px) 50vw, 384px"
-                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 384px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 ))}
